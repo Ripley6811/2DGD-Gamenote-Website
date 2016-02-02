@@ -1,0 +1,17 @@
+h1 {
+	text-align: center
+}
+ul.articles li:not(:last-child) {
+	border-bottom: 1px solid #ccc
+}
+
+.tiles {
+    margin: 4px;
+    border: 2px solid #ccf;
+    border-radius: 12px;
+}
+
+
+.well {
+    background-color: azure;
+}

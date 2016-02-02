@@ -1,0 +1,62 @@
+<section data-ng-controller="GamesController">
+  <form name="gameForm" class="form-horizontal col-md-6" role="form" 
+        data-ng-submit="create(gameForm.$valid)" novalidate>
+    <div class="form-group" ng-class="{ 'has-error' : submitted && gameForm.title.$invalid }">
+      <label mean-token="'create-title'" class="col-md-3 control-label">Title</label>
+      <div class="col-md-9">
+        <input name="title" type="text" class="form-control" data-ng-model="title" id="title" placeholder="Title (optional)">
+        <div ng-show="submitted && gameForm.title.$invalid" class="help-block">
+          <p ng-show="gameForm.title.$error.required">Title is required</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="form-group" ng-class="{ 'has-error' : submitted && gameForm.gameURL.$invalid }">
+      <label mean-token="'create-gameURL'" class="col-md-3 control-label">Game URL</label>
+      <div class="col-md-9">
+        <input name="gameURL" type="text" class="form-control" data-ng-model="gameURL" id="gameURL" placeholder="Game URL" required>
+        <div ng-show="submitted && gameForm.gameURL.$invalid" class="help-block">
+          <p ng-show="gameForm.gameURL.$error.required">Game URL is required</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="form-group" ng-class="{ 'has-error' : submitted && gameForm.splashURL.$invalid }">
+      <label mean-token="'create-splashURL'" class="col-md-3 control-label">Image URL</label>
+      <div class="col-md-9">
+        <input name="splashURL" type="text" class="form-control" data-ng-model="splashURL" id="splashURL" placeholder="Game image (optional)">
+        <div ng-show="submitted && gameForm.splashURL.$invalid" class="help-block">
+          <p ng-show="gameForm.splashURL.$error.required">Splash URL is required</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="form-group" ng-class="{ 'has-error' : submitted && gameForm.version.$invalid }">
+      <label mean-token="'create-version'" class="col-md-3 control-label">Version ID</label>
+      <div class="col-md-9">
+        <input name="version" type="text" class="form-control" data-ng-model="version" id="version" placeholder="Version" required>
+        <div ng-show="submitted && gameForm.version.$invalid" class="help-block">
+          <p ng-show="gameForm.version.$error.required">Version ID is required</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="form-group" ng-class="{ 'has-error' : submitted && gameForm.content.$invalid }">
+      <label mean-token="'create-content'" for="content" class="col-md-3 control-label">Developer Message / Instructions</label>
+      <div class="col-md-9">
+        <textarea name="content" data-ng-model="content" id="content" cols="30" rows="10" placeholder="Message (optional)" class="form-control"></textarea>
+        <div ng-show="submitted && gameForm.content.$invalid" class="help-block">
+          <p ng-show="gameForm.content.$error.required">Message is required</p>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-offset-3 col-md-9">
+        <button type="submit" class="btn btn-info">Submit</button>
+      </div>
+    </div>
+  </form>
+    <div class="col-md-6">
+        <img class="img-responsive img-rounded" ng-src="{{splashURL}}"> 
+    </div>
+</section>

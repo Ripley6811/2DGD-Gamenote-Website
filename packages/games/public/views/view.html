@@ -1,0 +1,52 @@
+<section data-ng-controller="GamesController" data-ng-init="findOne()">
+    <div class="col-md-6 col-md-push-6">
+        <img class="img-responsive img-rounded" ng-src="{{game.splashURL}}">
+    </div>
+    <div class="col-md-6 col-md-pull-6">
+        <h2>{{game.title}} <small><i>ver </i><span class="label label-success">{{game.version}}</span>
+            
+              <span data-ng-if="hasAuthorization(game)">
+                <a class="btn" href="/#!/games/{{game._id}}/edit">
+                  <i class="glyphicon glyphicon-edit"></i>
+                </a>
+              </span>
+            </small>
+        </h2>
+        <div class="row">
+        <div class="col-md-6">
+            <div>Developer: {{game.user.name}}</div>
+            <div>{{game.created | date:'medium'}}</div>
+        </div>
+        <div class="col-md-6">
+            <a class="btn btn-lg btn-primary" target="_blank" href="{{game.gameURL}}">Open game in new tab <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a>
+        </div>
+            </div>
+        <br>
+        <div class="well">{{game.content}}</div>
+
+        <form name="commentForm" class="form-horizontal" role="form" data-ng-show="game.active" data-ng-submit="addComment(game)">
+            <div class="form-group col-md-10">
+                <div class="">
+                    <textarea name="comment" data-ng-model="comment" id="comment" cols="30" rows="4" placeholder="Comment or give a suggestion about the game" class="form-control"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-info">Submit</button>
+                </div>
+            </div>
+        </form>
+
+        <div data-ng-repeat="comment in game.comments">
+            <div class="panel panel-default" style="margin-bottom: 6px">
+                <div class="panel-heading" style="padding-top: 5px; padding-bottom: 5px">
+                    <strong>{{comment.user}}</strong> commented on version <span class="label label-success" ng-class="{true: 'label-success', false: 'label-danger'}[game.version==comment.version]">{{comment.version}}</span>
+                </div>
+                <div class="panel-body">{{comment.comment}}</div>
+            </div>
+        </div>
+
+    </div>
+
+</section>

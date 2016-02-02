@@ -1,0 +1,29 @@
+<section data-ng-controller="GamesController" data-ng-init="find()">
+    <div class="row games unstyled">
+        <div data-ng-repeat="game in games">
+            <div class="clearfix" ng-if="$index % 3 == 0"></div>
+            <div class="col-md-4 tiles">
+                <h2>
+                    <a data-ng-href="#!/games/{{game._id}}">{{game.title}}</a>
+                    <span data-ng-if="hasAuthorization(game)">
+                      <a class="btn" href="/#!/games/{{game._id}}/edit">
+                        <i class="glyphicon glyphicon-edit"></i> Edit
+                      </a>
+                    </span>
+                  </h2>
+                <div>Developer: {{game.user.name}}</div>
+                <div>{{game.created | date:'medium'}}</div>
+                <div>
+                    <a href="#!/games/{{game._id}}">
+                        <img class="img-responsive img-rounded"
+                             style="max-height: 300px"
+                             src="{{game.splashURL}}"
+                             alt="No Image for {{game.title}}">
+                    </a>
+                </div>
+                <div class="well">{{game.content}}</div>
+            </div>
+        </div>
+    </div>
+    <h1 data-ng-hide="!games || games.length">No games yet. <br> Why don't you <a href="/#!/games/create">Create One</a>?</h1>
+</section>

@@ -1,0 +1,75 @@
+<section data-ng-controller="GamesController" data-ng-init="findOne()">
+  <form name="gameForm" class="form-horizontal col-md-6" role="form" data-ng-submit="update(gameForm.$valid)" novalidate>
+    <div class="form-group" ng-class="{ 'has-error' : submitted && gameForm.active.$invalid }">
+      <label mean-token="'edit-active'" for="active" class="col-md-2 control-label">Available for review</label>
+      <div class="col-md-2">
+        <input name="active" type="checkbox" class="form-control" data-ng-model="game.active" id="active">
+        <div ng-show="submitted && gameForm.active.$invalid" class="help-block">
+          <p ng-show="gameForm.active.$error.required">Active is required</p>
+        </div>
+      </div>
+        <div class="col-md-2 col-md-offset-5">
+    <a class="btn" data-ng-click="remove(game);">
+      <i class="glyphicon glyphicon-trash"></i> Delete
+    </a>
+</div>
+    </div>
+    <div class="form-group" ng-class="{ 'has-error' : submitted && gameForm.title.$invalid }">
+      <label mean-token="'edit-title'" for="title" class="col-md-2 control-label">Title</label>
+      <div class="col-md-10">
+        <input name="title" type="text" class="form-control" data-ng-model="game.title" id="title" placeholder="Title">
+        <div ng-show="submitted && gameForm.title.$invalid" class="help-block">
+          <p ng-show="gameForm.title.$error.required">Title is required</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="form-group" ng-class="{ 'has-error' : submitted && gameForm.gameURL.$invalid }">
+      <label mean-token="'edit-gameURL'" for="gameURL" class="col-md-2 control-label">Game URL</label>
+      <div class="col-md-10">
+        <input name="gameURL" type="text" class="form-control" data-ng-model="game.gameURL" id="gameURL" placeholder="Game URL" required>
+        <div ng-show="submitted && gameForm.gameURL.$invalid" class="help-block">
+          <p ng-show="gameForm.gameURL.$error.required">Game URL is required</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="form-group" ng-class="{ 'has-error' : submitted && gameForm.splashURL.$invalid }">
+      <label mean-token="'edit-splashURL'" for="splashURL" class="col-md-2 control-label">Image URL</label>
+      <div class="col-md-10">
+        <input name="splashURL" type="text" class="form-control" data-ng-model="game.splashURL" id="splashURL" placeholder="Game image">
+        <div ng-show="submitted && gameForm.splashURL.$invalid" class="help-block">
+          <p ng-show="gameForm.splashURL.$error.required">Image URL is required</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="form-group" ng-class="{ 'has-error' : submitted && gameForm.version.$invalid }">
+      <label mean-token="'edit-version'" for="version" class="col-md-2 control-label">Version ID</label>
+      <div class="col-md-10">
+        <input name="version" type="text" class="form-control" data-ng-model="game.version" id="version" placeholder='Version ("0.1", "0.2.1", "Alpha", "Aardvark")' required>
+        <div ng-show="submitted && gameForm.version.$invalid" class="help-block">
+          <p ng-show="gameForm.version.$error.required">Version is required</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="form-group" ng-class="{ 'has-error' : submitted && gameForm.content.$invalid }">
+      <label mean-token="'edit-content'" for="content" class="col-md-2 control-label">Developer Message/ Instructions</label>
+      <div class="col-md-10">
+        <textarea name="content" data-ng-model="game.content" id="content" cols="30" rows="10" placeholder="Game instructions, controls, or message to game tester" class="form-control"></textarea>
+        <div ng-show="submitted && gameForm.content.$invalid" class="help-block">
+          <p ng-show="gameForm.content.$error.required">Content is required</p>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-offset-2 col-md-10">
+        <button mean-token="'edit-submit'" type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </form>
+    <div class="col-md-6">
+        <img class="img-responsive img-rounded" ng-src="{{game.splashURL}}"> 
+    </div>
+</section>
