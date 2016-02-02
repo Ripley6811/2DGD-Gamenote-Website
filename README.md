@@ -3,7 +3,7 @@
 ## TODO:
 
 - [ ] Redirect automatically to `/games` page after login.
-- [ ] Fix google login redirect. Shows as '/#', but should be '/#!/' or '/#!/games'.
+- [ ] Fix google login redirect. Shows as `/#`, but should be `/#!/` or `/#!/games`.
 - [ ] Preserve newlines in comments.
 
 
