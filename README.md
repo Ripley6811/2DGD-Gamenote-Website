@@ -1,4 +1,13 @@
-## Initial steps
+# Game Testing and commenting website for 2DGD students
+
+## TODO:
+
+- [ ] Redirect automatically to `/games` page after login.
+- [ ] Fix google login redirect. Shows as '/#', but should be '/#!/' or '/#!/games'.
+- [ ] Preserve newlines in comments.
+
+
+## Setup notes
 
 ### Auth setup
 
