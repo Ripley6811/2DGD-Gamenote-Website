@@ -15,7 +15,7 @@ var mongoose = require('mongoose'),
  * Auth callback
  */
 exports.authCallback = function(req, res) {
-  res.redirect('/');
+  res.redirect('/#!/games');
 };
 
 /**
@@ -23,7 +23,7 @@ exports.authCallback = function(req, res) {
  */
 exports.signin = function(req, res) {
   if (req.isAuthenticated()) {
-    return res.redirect('/games');
+    return res.redirect('/');
   }
   res.redirect('#!/login');
 };

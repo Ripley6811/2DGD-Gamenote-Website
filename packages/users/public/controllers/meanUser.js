@@ -24,7 +24,7 @@ angular.module('mean.users')
                 window.location = response.redirect;
               }
             } else {
-              $location.url('/');
+              $location.url('/#!/games');
             }
           })
           .error(function() {
@@ -52,7 +52,7 @@ angular.module('mean.users')
             $scope.registerError = 0;
             $rootScope.user = $scope.user;
             $rootScope.$emit('loggedin');
-            $location.url('/');
+            $location.url('/#!/games');
           })
           .error(function(error) {
             // Error: authentication failed
