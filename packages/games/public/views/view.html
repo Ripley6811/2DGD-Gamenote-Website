@@ -1,5 +1,7 @@
 <section data-ng-controller="GamesController" data-ng-init="findOne()">
     <div class="col-md-6 col-md-push-6">
+        <a class="btn btn-lg btn-primary" style="position: absolute"
+           target="_blank" href="{{game.gameURL}}">Open game in new tab <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a>
         <img class="img-responsive img-rounded" ng-src="{{game.splashURL}}">
     </div>
     <div class="col-md-6 col-md-pull-6">
@@ -18,7 +20,6 @@
             <div>{{game.created | date:'medium'}}</div>
         </div>
         <div class="col-md-6">
-            <a class="btn btn-lg btn-primary" target="_blank" href="{{game.gameURL}}">Open game in new tab <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a>
         </div>
             </div>
         <br>
@@ -33,7 +34,7 @@
 
             <div class="form-group">
                 <div class="col-md-2">
-                    <button type="submit" class="btn btn-info">Submit</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
             </div>
         </form>

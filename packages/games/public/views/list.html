@@ -3,7 +3,11 @@
         <div data-ng-repeat="game in games">
             <div class="clearfix" ng-if="$index % 3 == 0"></div>
             <div class="col-md-4 tiles">
-                <h2>
+                    <a href="#!/games/{{game._id}}">
+                <img class="background-image" src="{{game.splashURL}}">
+                    </a>
+                <div class="well top-well">
+                    <h2>
                     <a data-ng-href="#!/games/{{game._id}}">{{game.title}}</a>
                     <span data-ng-if="hasAuthorization(game)">
                       <a class="btn" href="/#!/games/{{game._id}}/edit">
@@ -11,17 +15,9 @@
                       </a>
                     </span>
                   </h2>
-                <div>Developer: {{game.user.name}}</div>
-                <div>{{game.created | date:'medium'}}</div>
-                <div class="text-center">
-                    <a href="#!/games/{{game._id}}">
-                        <img class="img-responsive img-rounded"
-                             style="max-height: 300px"
-                             src="{{game.splashURL}}"
-                             alt="No Image for {{game.title}}">
-                    </a>
+                    <div>Developer: {{game.user.name}}</div>
                 </div>
-                <div class="well">{{game.content}}</div>
+                <div class="well bottom-well">{{game.content}}</div>
             </div>
         </div>
     </div>

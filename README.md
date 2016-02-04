@@ -16,7 +16,7 @@ shows which version it referred to.
 - [x] Preserve newlines in comments.
 - [x] Change tab icon.
 - [ ] Add email notification option when comments are added.
-
+- [ ] Tile no-login homepage with game images
 
 ## Setup notes
 

@@ -34,7 +34,7 @@
     <div class="form-group" ng-class="{ 'has-error' : submitted && gameForm.version.$invalid }">
       <label mean-token="'create-version'" class="col-md-3 control-label">Version ID</label>
       <div class="col-md-9">
-        <input name="version" type="text" class="form-control" data-ng-model="version" id="version" placeholder="Version" required>
+        <input name="version" type="text" class="form-control" data-ng-model="version" id="version" placeholder="Version number or word" required>
         <div ng-show="submitted && gameForm.version.$invalid" class="help-block">
           <p ng-show="gameForm.version.$error.required">Version ID is required</p>
         </div>
