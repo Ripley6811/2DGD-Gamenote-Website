@@ -18,7 +18,7 @@ var GameSchema = new Schema({
     splashURL: { // Optional image from game
         type: String,
         required: false,
-        default: '',
+        default: 'http://lorempixel.com/400/500/abstract/placeholder from lorempixel/',
         trim: true
     },
     gameURL: {
